@@ -1,0 +1,38 @@
+body {
+    background-color: grey;
+}
+
+#logo {
+    width: 150px; 
+    height:150px;
+
+}
+#link {
+    background-color: aliceblue;
+    text-align: center; 
+    line-height: 75px;  
+    margin-left: 20px; 
+    width: 75px; 
+    height:75px;
+}
+
+.navbar-nav {
+   font-size: 45px; 
+}
+
+.card {
+    border: 0px;
+}
+
+#map {
+    width:100%;
+    height:400px;
+}
+
+
+#activities {
+    background-color: gray;
+    border-color: gray;
+
+}
+    
