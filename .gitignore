@@ -1,17 +1,17 @@
 
 # Prerequisites
-*.d
+.d
 
 # Object files
-*.o
-*.ko
-*.obj
-*.elf
+.o
+.ko
+.obj
+.elf
 
 # Linker output
-*.ilk
-*.map
-*.exp
+.ilk
+.map
+.exp
 
 # Precompiled Headers
 *.gch
@@ -52,4 +52,5 @@ Module.symvers
 Mkfile.old
 dkms.conf
 # IOS files
+*.DS_Store
 .DS_Store
