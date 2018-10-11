@@ -8,7 +8,7 @@
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
       <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
       <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-      
+      <link href="https://fonts.googleapis.com/css?family=Knewave|Roboto" rel="stylesheet">
       <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
       <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
       <script src="assets/javascript/logic.js"></script>
@@ -29,35 +29,36 @@
 
 <body>
  <div class="container ">
-        <nav class="navbar navbar-expand-sm" style="margin-bottom: 25px">
-                <div class="container-fluid">
-                  <div class="navbar-header">
-                        <a class="navbar-brand" href="#">
-                                <img id="logo" src="assets/images/logo2.png" class="rounded-circle" alt="logo">
-                       </a>
-                  </div>
-                  <ul class="nav navbar-nav" >
-                    <span id="link" class="border border-primary rounded-circle" >
-                    <li><a href="#"><span>H</span></a></li>
+    <nav class="navbar navbar-expand-sm" style="margin-bottom: 25px">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img id="logo" src="assets/images/HopToLogo.png" class="rounded-circle" alt="logo"></a>
+            </div>
+                
+            <ul class="nav navbar-nav" >        
+                <span class="border border-primary rounded-circle"  >
+                    <li class="active"><a href="splash.html"><h1>H</h1></a></li>
                 </span>
-                    <span id="link" class="border border-primary rounded-circle" >
-                    <li ><a href="#"><span>I</span></a></li>
+    
+                <span class="border border-primary rounded-circle" >
+                    <li class="rounded"><a href="Instructions.html"><h1>I</h1></a></li>
                 </span>
-                    <span id="link" class="border border-primary rounded-circle">
-                    <li ><a href="#"><span>M</span></a></li>
+    
+                <span class="border border-primary rounded-circle" >
+                    <li><a href="GoogleMaps.html"><h1>M</h1></a></li>
                 </span>
-                    <span id="link" class="border border-primary rounded-circle">
-                    <li ><a href="#"><span>A</span></a></li>
+    
+                <span class="border border-primary rounded-circle"  >
+                    <li><a href="about.html"><h1>A</h1></a></li>
                 </span>
-                <span id="link" class="border border-primary rounded-circle">
-                    <li ><a href="#"><span>P</span></a></li>
+    
+                <span class="border border-primary rounded-circle"  >
+                    <li><a href="profile.html"><h1>P</h1></a></li>
                 </span>
-                    
-              
-                  </ul>
-                </div>
-              </nav>
-
+            </ul>
+        </div>
+    </nav>
 
     <div class="row">
         <div class="col-sm-7">
@@ -65,22 +66,22 @@
         <div id="activities" class="card-body">   
             <div class="card-text" >
                 <form action="/action_page.php">
-                    <button type="button" class="btn btn-primary btn-lg">ADD</button>                    
+                    <button id = "add-btn" type="button" class="btn btn-primary btn-lg">ADD</button>                    
                     <div class="form-group">
                         <label for="add activity"></label>
-                        <input  class="form-control form-control-lg" placeholder="New Item: Try New restaurant">
+                        <input  class="form-control form-control-lg" placeholder="Previous Destination">
                     </div>
                     <div class="form-group">
                         <label for="add activity"></label>
-                        <input  class="form-control form-control-lg" placeholder="New Item: Try New restaurant">
+                        <input  class="form-control form-control-lg" placeholder="Current Destination">
                     </div>
                     <div class="form-group">
                         <label for="add activity"></label>
-                        <input  class="form-control form-control-lg"placeholder="New Item: Try New restaurant">
+                        <input  class="form-control form-control-lg"placeholder="Next Destination">
                     </div>
                     <div class="form-group">
                         <label for="add activity"></label>
-                        <input  class="form-control form-control-lg" placeholder="New Item: Try New restaurant">
+                        <input  class="form-control form-control-lg" placeholder="Next destination">
                     </div>               
                 </form>
             </div>
