@@ -1,5 +1,3 @@
-
-
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyBwB6UlpxIaiR92Mce9Ebx_E86-2L84Ync",
@@ -35,7 +33,7 @@ function checkUser(user, password) {
           sessionStorage.listCount = 0;
       }
 
-  })
+  });
 };// end checkUser function for signing up for new users.
 function login(user, password) {
   db.ref("/users").child(user).once('value', function (snapshot) {
@@ -45,5 +43,14 @@ function login(user, password) {
           sessionStorage.p = password;
           sessionStorage.listCount = snapshot.child("listCount").val();
       } else { alert("please enter correct username and password"); } // we're not supposed to use these
-  })
+  });
 };// end login function to check password if user exists
+function addList (user, name, location) {
+  db.ref("/users").child(user).once('value', function(snap) {
+    var lCount = snap.child("listCount").val();
+    var newLc = lCount + 1; 
+    db.ref("users").child(user).child("lists").child("list" +newLc).set({name: name, location: location});
+    db.ref("users").child(user).child("listCount").set(newLc);
+    console.log(lCount);
+  });
+}
