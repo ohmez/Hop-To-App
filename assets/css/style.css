@@ -7,6 +7,11 @@ body {
     font-family: 'Roboto';
 }
 
+#splashBody {
+    background-image: url("../images/HopToBackGround.png");
+    
+}
+
 .card {
     background-color: #363636;
     color: #FFF;
@@ -14,6 +19,11 @@ body {
 
 h1 {
     font-family: 'Knewave', cursive;
+}
+
+h2 {
+    font-family: 'Roboto';
+    color: #fff;
 }
 
 h5 {
@@ -29,14 +39,63 @@ h5 {
     width: 150px;
 }
 
-
-
 .border {
-    background-color: #fff;    
-    height: 100px;
-    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5) ;
-}
+   background-color:rgba(10, 10, 10, .35);    
+   }
 
 .border h1 {
     color: 363636;
+}
+
+#splashTitle {
+    font-size: 100px;
+    color: #fff;
+}
+
+#aboutP {
+    color: white;
+}
+
+
+#loginBTN {
+	border: none;
+	background: #008fff;
+	color: #fff;
+	padding: 0px 50px 0px 50px;
+	font-size: 25px;
+	border-radius: 5px;
+	position: relative;
+	box-sizing: border-box;
+	transition: all 500ms ease; 
+}
+#loginBTN:hover {
+	background: #f565ff;
+	color: #fff;
+	box-shadow: inset 0 0 0 3px #008fff;
+}
+
+#signUpBTN {
+    border: none;
+	background: #f565ff;
+	color: #fff;
+	padding: 0px 40px 0px 40px;
+	font-size: 25px;
+	border-radius: 5px;
+	position: relative;
+	box-sizing: border-box;
+	transition: all 500ms ease; 
+}
+
+#signUpBTN:hover {
+	background: #008fff;
+	color: #fff;
+	box-shadow: inset 0 0 0 3px #f565ff;
+}
+
+#welcome {
+    font-style: oblique;
+}
+
+#aboutP {
+    font-size: 25px;
 }
