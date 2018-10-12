@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1516.8 391" style="enable-background:new 0 0 1516.8 391;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#42A9DF;stroke-width:5;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#42A9DF;stroke-width:5;stroke-miterlimit:10;stroke-dasharray:15.1566,15.1566;}
+	.st2{fill:none;stroke:#42A9DF;stroke-width:5;stroke-miterlimit:10;stroke-dasharray:15.0844,15.0844;}
+	.st3{fill:none;stroke:#42A9DF;stroke-width:5;stroke-miterlimit:10;stroke-dasharray:15.0704,15.0704;}
+	.st4{fill:none;stroke:#42A9DF;stroke-width:5;stroke-miterlimit:10;stroke-dasharray:14.6782,14.6782;}
+	.st5{fill:#D08CBC;}
+</style>
+<g>
+	<g>
+		<g>
+			<line class="st0" x1="301.1" y1="358.6" x2="295.2" y2="354"/>
+			<line class="st1" x1="283.3" y1="344.6" x2="28" y2="142.1"/>
+			<polyline class="st0" points="22.1,137.4 16.2,132.7 23.6,131.5 			"/>
+			<polyline class="st2" points="38.5,129.1 731.3,16.2 1093.9,260 			"/>
+			<polyline class="st0" points="1100.1,264.2 1106.3,268.4 1113.5,266 			"/>
+			<line class="st3" x1="1127.8" y1="261.3" x2="1349.6" y2="188.2"/>
+			<polyline class="st0" points="1356.8,185.8 1363.9,183.5 1368.3,189.6 			"/>
+			<line class="st4" x1="1376.8" y1="201.5" x2="1492" y2="362.8"/>
+			<line class="st0" x1="1496.2" y1="368.7" x2="1500.6" y2="374.8"/>
+		</g>
+	</g>
+	<g>
+		<circle class="st5" cx="731.3" cy="16.2" r="16.2"/>
+		<circle class="st5" cx="301.1" cy="358.6" r="16.2"/>
+		<circle class="st5" cx="16.2" cy="132.7" r="16.2"/>
+		<circle class="st5" cx="1106.3" cy="268.4" r="16.2"/>
+		<circle class="st5" cx="1363.9" cy="183.5" r="16.2"/>
+		<circle class="st5" cx="1500.6" cy="374.8" r="16.2"/>
+	</g>
+</g>
+</svg>
