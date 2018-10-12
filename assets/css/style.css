@@ -20,6 +20,11 @@ h5 {
     font-family: 'Knewave', cursive;
 }
 
+P {
+    font-family: 'Roboto';
+    font-size: 30px;
+}
+
 .navbar {
     background-image: linear-gradient(-90deg, #008FFF, #F565FF);
 }
@@ -27,16 +32,33 @@ h5 {
 .navbar-brand img {
     height: 150px;
     width: 150px;
+    
 }
-
-
 
 .border {
     background-color: #fff;    
-    height: 100px;
+    height: 75px;
+    width: 75px;
+    line-height: 75px; 
     box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5) ;
+    margin-left: 15px;
 }
 
 .border h1 {
-    color: 363636;
+    color: 363636; 
+    line-height: 75px;  
+    margin-left: 25px; 
+    width: 75px; 
+}
+
+#add-btn {
+    background:  #F565FF;
+}
+
+#nav-btn {
+    background:  #F565FF;
+    width: 235px;
+    font-family: 'Knewave';
+    font-size: 24px;
+    color: rgb(0, 60, 255);
 }
