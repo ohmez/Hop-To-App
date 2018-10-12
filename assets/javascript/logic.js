@@ -60,3 +60,17 @@ function addItem (user, listNum, itemName, itemLocation) {
     db.ref("/users").child(user).child("lists").child("list"+listNum).child(itemName).set(itemLocation);
   });
 };
+var lat = 40;
+var lng = -111;
+var key = "&key=AIzaSyA11oEIx4XjMpFyLNIs1-QKl7ENcRYVoe0"
+var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ lat + "," + lng + key ;
+console.log(queryURL)
+
+ $.ajax({
+url: queryURL,
+method: "GET"
+})
+.then(function(response) {
+  console.log(response);
+  console.log(response.results[0].formatted_address);  
+});
