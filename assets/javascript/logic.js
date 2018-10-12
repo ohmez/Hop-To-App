@@ -59,7 +59,9 @@ function addItem (user, listNum, itemName, itemLocation) {
     var totalLists = snap.child("listCount").val();
     db.ref("/users").child(user).child("lists").child("list"+listNum).child(itemName).set(itemLocation);
   });
-};
+};// end add item function, called when adding items, requires 4 parameters.
+
+// start global variables for ajax to google maps API's
 var lat = 40;
 var lng = -111;
 var key = "&key=AIzaSyA11oEIx4XjMpFyLNIs1-QKl7ENcRYVoe0"
@@ -69,11 +71,7 @@ console.log(queryURL)
  $.ajax({
 url: queryURL,
 method: "GET"
-})
-.then(function(response) {
+}).then(function(response) {
   console.log(response);
-  console.log(response.results[0].formatted_address);
-
-
-  
+  console.log(response.results[0].formatted_address);  
 });
