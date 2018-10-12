@@ -12,7 +12,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="assets/javascript/logic.js"></script>
-    <title>Profile Page</title>
+    <title>Profile</title>
 </head>
 <body>
     <div class="container">
@@ -23,7 +23,7 @@
                  <a class="navbar-brand" href="#">
                     <img src="assets/images/HopToLogo.png" class="rounded-circle" alt="logo" style="margin-bottom: 5px">                                     
                 </a>
-                <h1 class="float-right mt-5">Hop To</h1>
+                <h1 class="float-right mt-5">Hop To It</h1>
             </div>
         <div>
         
@@ -60,13 +60,13 @@
                         
                 <div class="card-body">
                     <h5 class="card-title">Past Lists</h5>
-                    <input class="form-control" type="text" placeholder="Wednesday" readonly>
+                    <input class="form-control" id="wednesday" type="text" placeholder="Wednesday" readonly>
                     <br>
-                    <input class="form-control" type="text" placeholder="Thursday" readonly>
+                    <input class="form-control" id="thursday" type="text" placeholder="Thursday" readonly>
                     <br>
-                    <input class="form-control" type="text" placeholder="Friday" readonly>
+                    <input class="form-control" id="friday" type="text" placeholder="Friday" readonly>
                     <br>
-                    <input class="form-control" type="text" placeholder="Saturday" readonly>
+                    <input class="form-control" id="saturday" type="text" placeholder="Saturday" readonly>
                     <br>
                  <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
                 </div>
@@ -75,7 +75,7 @@
             <div class="col-sm-4">
                 <div class="card" style="width: 20rem;">                          
                     <div class="card-body">
-                    <h5 class="card-title">Notes</h5>
+                    <h5 class="card-title" id="notes">Notes</h5>
                 
                     <div class="form-group">
                             <label for="exampleFormControlTextarea1"></label>
@@ -90,7 +90,7 @@
             <div class="col-sm-4">
                 <div class="card" style="width: 20rem;">            
                     <div class="card-body">
-                    <h5 class="card-title">Progress</h5>
+                    <h5 class="card-title" id="progress">Progress</h5>
                     <p class="card-text"></p>
                     </div>
                 </div>

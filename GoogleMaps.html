@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GoogleMapsPage</title>
+    <title>Maps</title>
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
       <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
       <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -12,19 +12,6 @@
       <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
       <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
       <script src="assets/javascript/logic.js"></script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
-      <script>
-    function myMap() {
-        var mapCanvas = document.getElementById("map");
-        var mapOptions = {
-            center: new google.maps.LatLng(51.5, -0.2),
-            zoom: 10
-        };
-        var map = new google.maps.Map(mapCanvas, mapOptions);
-    }
-</script>
-    
-
 </head>
 
 <body>
@@ -37,7 +24,9 @@
             </div>
                 
             <ul class="nav navbar-nav" >        
-                
+                <span class="border border-primary rounded-circle" id="home" >
+                    <li class="active"><a href="splash.html"><h1>H</h1></a></li>
+                </span>
     
                 <span class="border border-primary rounded-circle" >
                     <li class="rounded"><a href="Instructions.html"><h1>I</h1></a></li>
@@ -67,19 +56,19 @@
                     <button id = "add-btn" type="button" class="btn btn-primary btn-lg">ADD</button>                    
                     <div class="form-group">
                         <label for="add activity"></label>
-                        <input  class="form-control form-control-lg" placeholder="Previous Destination">
+                        <input  class="form-control form-control-lg" id="previousDestination" placeholder="Previous Destination">
                     </div>
                     <div class="form-group">
                         <label for="add activity"></label>
-                        <input  class="form-control form-control-lg" placeholder="Current Destination">
+                        <input  class="form-control form-control-lg" id="currentDestination" placeholder="Current Destination">
                     </div>
                     <div class="form-group">
                         <label for="add activity"></label>
-                        <input  class="form-control form-control-lg"placeholder="Next Destination">
+                        <input  class="form-control form-control-lg" id="nextDestination" placeholder="Next Destination">
                     </div>
                     <div class="form-group">
                         <label for="add activity"></label>
-                        <input  class="form-control form-control-lg" placeholder="Next destination">
+                        <input  class="form-control form-control-lg" id="nextDestination" placeholder="Next Destination">
                     </div>               
                 </form>
             </div>
