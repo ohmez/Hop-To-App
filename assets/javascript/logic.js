@@ -57,7 +57,6 @@ function addList (user, name, location) {
 function addItem (user, listNum, itemName, itemLocation) {
   db.ref("/users").child(user).once('value', function(snap) {
     var totalLists = snap.child("listCount").val();
-    
-
+    db.ref("/users").child(user).child("lists").child("list"+listNum).child(itemName).set(itemLocation);
   });
 };
