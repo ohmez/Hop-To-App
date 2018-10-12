@@ -17,6 +17,14 @@ body {
     color: #FFF;
 }
 
+.container {
+    
+}
+
+text {
+    font-family: 'Knewave', cursive;
+}
+
 h1 {
     font-family: 'Knewave', cursive;
 }
@@ -43,6 +51,17 @@ P {
     height: 150px;
     width: 150px;
     
+}
+.btn {
+    background-color: #008FFF;
+}
+
+#ip1 {
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 20px; 
+    width: 200px;
+    height: 15px;
 }
 
 .border {
