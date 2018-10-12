@@ -53,4 +53,11 @@ function addList (user, name, location) {
     db.ref("users").child(user).child("listCount").set(newLc);
     console.log(lCount);
   });
-}
+};// end addList function this will only log on the initial creation of the list; not adding items.
+function addItem (user, listNum, itemName, itemLocation) {
+  db.ref("/users").child(user).once('value', function(snap) {
+    var totalLists = snap.child("listCount").val();
+    
+
+  });
+};
