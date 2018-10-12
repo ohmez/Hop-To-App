@@ -46,22 +46,18 @@ P {
     width: 150px;
     
 }
-
-<<<<<<< HEAD
 .btn {
     background-color: #008FFF;
 }
 
 #ip1 {
     border-radius: 25px;
-    border: 2px solid #black;
+    border: 2px solid black;
     padding: 20px; 
     width: 200px;
-    height: 15px
+    height: 15px;
 }
 
-=======
->>>>>>> master
 .border {
     background-color: #fff;    
     height: 75px;
