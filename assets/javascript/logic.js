@@ -59,7 +59,9 @@ function addItem (user, listNum, itemName, itemLocation) {
     var totalLists = snap.child("listCount").val();
     db.ref("/users").child(user).child("lists").child("list"+listNum).child(itemName).set(itemLocation);
   });
-};
+};// end add item function, called when adding items, requires 4 parameters.
+
+// start global variables for ajax to google maps API's
 var lat = 40;
 var lng = -111;
 var key = "&key=AIzaSyA11oEIx4XjMpFyLNIs1-QKl7ENcRYVoe0"
@@ -69,8 +71,15 @@ console.log(queryURL)
  $.ajax({
 url: queryURL,
 method: "GET"
-})
-.then(function(response) {
+}).then(function(response) {
   console.log(response);
   console.log(response.results[0].formatted_address);  
 });
+
+// start on click function listeners - libby you're to make these for splash and login atleast; communicate with others to make sure if you want to do more. 
+//here is an example of what we need
+$(document).on("click", "#loginBTN", function () {
+  // script to be added after on clicks working
+  console.log($(this)[0]);
+  console.log("^this was clicked");
+});// end singup function for new user populates new login content
