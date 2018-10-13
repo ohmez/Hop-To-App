@@ -108,9 +108,18 @@ $(document).on("click", "#add-btn", function () {
   $("#newAddress").val('');
   $("#newName").val('');
 });
+
+
+
+
 $(document).on("click", ".activeList", function () {
-  console.log($(this)[0]);
+  var a = JSON.stringify($(this).val());
+  console.log($(this).val());
   console.log("^this was clicked");
+  sessionStorage.setItem("destination",a);
+  onChangeHandler();
+
+  
 });// on click for selecting which list to pull address information from. 
 
 //on click for submit button on signup page
@@ -126,28 +135,26 @@ if (navigator.geolocation) {
       lat: position.coords.latitude,
       lng: position.coords.longitude
     };
-
+    
     console.log(pos.lat)
     console.log(pos.lng)
-    $("#button").on('click', function(yeehaw){
-var lat = pos.lat;
-var lng = pos.lng;
-var key = "&key=AIzaSyA11oEIx4XjMpFyLNIs1-QKl7ENcRYVoe0"
-var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ lat + "," + lng + key ;
-console.log(queryURL)
-
- $.ajax({
-url: queryURL,
-method: "GET"
-})
-.then(function(response) {
-  console.log(response);
-  console.log(response.results[0].formatted_address);
-  sessionStorage.setItem(response.results[0].formatted_address)
-  
-  });
-})
-})
+      var lat = pos.lat;
+      var lng = pos.lng;
+      var key = "&key=AIzaSyA11oEIx4XjMpFyLNIs1-QKl7ENcRYVoe0"
+      var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ lat + "," + lng + key ;
+      console.log(queryURL)
+      
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+      .then(function(response) {
+        console.log(response);
+        console.log(response.results[0].formatted_address);
+        sessionStorage.setItem("location", response.results[0].formatted_address);
+        
+      });
+  })
 };
 
 //map for mapping page
@@ -159,18 +166,18 @@ function initMap() {
     center: {lat: 41.85, lng: -87.65}
   });
   directionsDisplay.setMap(map);
-
+  
   var onChangeHandler = function() {
     calculateAndDisplayRoute(directionsService, directionsDisplay);
   };
-  document.getElementById('start').addEventListener('change', onChangeHandler);
-  document.getElementById('end').addEventListener('change', onChangeHandler);
+  
+  document.getElementById('map').addEventListener('click', onChangeHandler);
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   directionsService.route({
-    origin: "1036 E 4000 S, Salt Lake City, UT 84102, USA" ,
-    destination: "6732 west 8305 south , West Jordan, UT 84081, USA",
+    origin: sessionStorage.getItem("location") ,
+    destination: sessionStorage.getItem("destination"),
     travelMode: 'DRIVING'
   }, function(response, status) {
     if (status === 'OK') {
