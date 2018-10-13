@@ -83,3 +83,35 @@ $(document).on("click", "#loginBTN", function () {
   console.log($(this)[0]);
   console.log("^this was clicked");
 });// end singup function for new user populates new login content
+
+
+// gets location and uses a button to convert to address in console.
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var pos = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
+
+    console.log(pos.lat)
+    console.log(pos.lng)
+    $("#button").on('click', function(yeehaw){
+var lat = pos.lat;
+var lng = pos.lng;
+var key = "&key=AIzaSyA11oEIx4XjMpFyLNIs1-QKl7ENcRYVoe0"
+var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ lat + "," + lng + key ;
+console.log(queryURL)
+
+ $.ajax({
+url: queryURL,
+method: "GET"
+})
+.then(function(response) {
+  console.log(response);
+  console.log(response.results[0].formatted_address);
+  sessionStorage.setItem(response.results[0].formatted_address)
+  
+  });
+})
+})
+}
