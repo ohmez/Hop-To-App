@@ -93,6 +93,12 @@ $(document).on("click", "#add-btn", function () {
   console.log("^this was clicked");
 });
 
+//on click for submit button on signup page
+$(document).on("click", "#submit", function () {
+  console.log($(this)[0]);
+  console.log("^this was clicked");
+});
+
 // gets location and uses a button to convert to address in console.
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function(position) {
