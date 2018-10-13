@@ -62,8 +62,50 @@ function addItem (user, listNum, itemName, itemLocation) {
 };// end add item function, called when adding items, requires 4 parameters.
 
 // start global variables for ajax to google maps API's
-var lat = 40;
-var lng = -111;
+
+//on click for log-in button on splash page
+$(document).on("click", "#loginBTN", function () {
+  console.log($(this)[0]);
+  console.log("^this was clicked");
+});
+
+//on click for sign-up button on splash page
+$(document).on("click", "#signUpBTN", function () {
+  console.log($(this)[0]);
+  console.log("^this was clicked");
+});
+
+//on click for log-in button on login page
+$(document).on("click", "#login", function () {
+  console.log($(this)[0]);
+  console.log("^this was clicked");
+});
+
+//on click for sign-up button on login page
+$(document).on("click", "#signup", function () {
+  console.log($(this)[0]);
+  console.log("^this was clicked");
+});
+
+//on click for add button on google maps page
+$(document).on("click", "#add-btn", function () {
+  console.log($(this)[0]);
+  console.log("^this was clicked");
+});
+
+// gets location and uses a button to convert to address in console.
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var pos = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
+
+    console.log(pos.lat)
+    console.log(pos.lng)
+    $("#button").on('click', function(yeehaw){
+var lat = pos.lat;
+var lng = pos.lng;
 var key = "&key=AIzaSyA11oEIx4XjMpFyLNIs1-QKl7ENcRYVoe0"
 var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ lat + "," + lng + key ;
 console.log(queryURL)
@@ -71,15 +113,44 @@ console.log(queryURL)
  $.ajax({
 url: queryURL,
 method: "GET"
-}).then(function(response) {
+})
+.then(function(response) {
   console.log(response);
-  console.log(response.results[0].formatted_address);  
-});
+  console.log(response.results[0].formatted_address);
+  sessionStorage.setItem(response.results[0].formatted_address)
+  
+  });
+})
+})
+};
 
-// start on click function listeners - libby you're to make these for splash and login atleast; communicate with others to make sure if you want to do more. 
-//here is an example of what we need
-$(document).on("click", "#loginBTN", function () {
-  // script to be added after on clicks working
-  console.log($(this)[0]);
-  console.log("^this was clicked");
-});// end singup function for new user populates new login content
+//map for mapping page
+function initMap() {
+  var directionsService = new google.maps.DirectionsService;
+  var directionsDisplay = new google.maps.DirectionsRenderer;
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 7,
+    center: {lat: 41.85, lng: -87.65}
+  });
+  directionsDisplay.setMap(map);
+
+  var onChangeHandler = function() {
+    calculateAndDisplayRoute(directionsService, directionsDisplay);
+  };
+  document.getElementById('start').addEventListener('change', onChangeHandler);
+  document.getElementById('end').addEventListener('change', onChangeHandler);
+}
+
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+  directionsService.route({
+    origin: "1036 E 4000 S, Salt Lake City, UT 84102, USA" ,
+    destination: "6732 west 8305 south , West Jordan, UT 84081, USA",
+    travelMode: 'DRIVING'
+  }, function(response, status) {
+    if (status === 'OK') {
+      directionsDisplay.setDirections(response);
+    } else {
+      window.alert('Directions request failed due to ' + status);
+    }
+  });
+}
