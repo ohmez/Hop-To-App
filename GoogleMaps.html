@@ -19,18 +19,12 @@
     <nav class="navbar navbar-expand-sm" style="margin-bottom: 25px">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="GoogleMaps.html">
                     <img id="logo" src="assets/images/HopToLogo.png" class="rounded-circle" alt="logo"></a>
+                    <h1 class="float-right mt-5">Hop To</h1>
             </div>
                 
             <ul class="nav navbar-nav" >        
-                <span class="border border-primary rounded-circle" id="home" >
-                    <li class="active"><a href="splash.html"><h1>H</h1></a></li>
-                </span>
-    
-                <span class="border border-primary rounded-circle" >
-                    <li class="rounded"><a href="Instructions.html"><h1>I</h1></a></li>
-                </span>
     
                 <span class="border border-primary rounded-circle" >
                     <li><a href="GoogleMaps.html"><h1>M</h1></a></li>
@@ -48,34 +42,29 @@
     </nav>
 
     <div class="row">
-        <div class="col-sm-7">
+        <div class="col-sm-5">
         <div class="card">           
         <div id="activities" class="card-body">   
             <div class="card-text" >
                 <form action="/action_page.php">
-                    <button id = "add-btn" type="button" class="btn btn-primary btn-lg">ADD</button>                    
+                    <P>Begin clicking the add button to create an new item to your list then enter your destination into the box</P>
+                
                     <div class="form-group">
                         <label for="add activity"></label>
-                        <input  class="form-control form-control-lg" id="previousDestination" placeholder="Previous Destination">
+                        <input  class="form-control form-control-lg" id="previousDestination" placeholder="Address">
                     </div>
                     <div class="form-group">
                         <label for="add activity"></label>
-                        <input  class="form-control form-control-lg" id="currentDestination" placeholder="Current Destination">
+                        <input  class="form-control form-control-lg" id="currentDestination" placeholder="Name">
                     </div>
-                    <div class="form-group">
-                        <label for="add activity"></label>
-                        <input  class="form-control form-control-lg" id="nextDestination" placeholder="Next Destination">
-                    </div>
-                    <div class="form-group">
-                        <label for="add activity"></label>
-                        <input  class="form-control form-control-lg" id="nextDestination" placeholder="Next Destination">
-                    </div>               
+                    <button id = "add-btn" type="button" class="btn btn-primary btn-lg">ADD</button>    
+                                
                 </form>
             </div>
         </div>
         </div>
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-7">
             <div class="card">
             <div class="card-body">   
                 <div class="card-text" >
