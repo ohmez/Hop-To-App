@@ -113,6 +113,12 @@ $(document).on("click", ".activeList", function () {
   console.log("^this was clicked");
 });// on click for selecting which list to pull address information from. 
 
+//on click for submit button on signup page
+$(document).on("click", "#submit", function () {
+  console.log($(this)[0]);
+  console.log("^this was clicked");
+});
+
 // gets location and uses a button to convert to address in console.
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function(position) {
