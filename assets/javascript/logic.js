@@ -100,28 +100,28 @@ if (navigator.geolocation) {
       lat: position.coords.latitude,
       lng: position.coords.longitude
     };
-
+    
     console.log(pos.lat)
     console.log(pos.lng)
-    $("#button").on('click', function(yeehaw){
-var lat = pos.lat;
-var lng = pos.lng;
-var key = "&key=AIzaSyA11oEIx4XjMpFyLNIs1-QKl7ENcRYVoe0"
-var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ lat + "," + lng + key ;
-console.log(queryURL)
-
- $.ajax({
-url: queryURL,
-method: "GET"
-})
-.then(function(response) {
-  console.log(response);
-  console.log(response.results[0].formatted_address);
-  sessionStorage.setItem(response.results[0].formatted_address)
-  
-  });
-})
-})
+    $("body").on('click', function(yeehaw){
+      var lat = pos.lat;
+      var lng = pos.lng;
+      var key = "&key=AIzaSyA11oEIx4XjMpFyLNIs1-QKl7ENcRYVoe0"
+      var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ lat + "," + lng + key ;
+      console.log(queryURL)
+      
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+      .then(function(response) {
+        console.log(response);
+        console.log(response.results[0].formatted_address);
+        sessionStorage.setItem("location", response.results[0].formatted_address);
+        
+      });
+    })
+  })
 };
 
 //map for mapping page
@@ -133,17 +133,17 @@ function initMap() {
     center: {lat: 41.85, lng: -87.65}
   });
   directionsDisplay.setMap(map);
-
+  
   var onChangeHandler = function() {
     calculateAndDisplayRoute(directionsService, directionsDisplay);
   };
-  document.getElementById('start').addEventListener('change', onChangeHandler);
-  document.getElementById('end').addEventListener('change', onChangeHandler);
+  
+  document.getElementById('map').addEventListener('click', onChangeHandler);
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   directionsService.route({
-    origin: "1036 E 4000 S, Salt Lake City, UT 84102, USA" ,
+    origin: sessionStorage.getItem("location") ,
     destination: "6732 west 8305 south , West Jordan, UT 84081, USA",
     travelMode: 'DRIVING'
   }, function(response, status) {
