@@ -70,6 +70,11 @@ P {
 
 .border h1 {
     color: 363636;
+    line-height: 55px;
+    margin-left: 25px;
+    width: 75px;
+    height: 75px;
+    padding: 12px;
 }
 
 #splashTitle {
@@ -131,12 +136,7 @@ P {
     margin-left: 15px;
 }
 
-.border h1 {
-    color: 363636; 
-    line-height: 75px;  
-    margin-left: 25px; 
-    width: 75px; 
-}
+
 
 #add-btn {
     background:  #F565FF;
