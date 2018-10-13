@@ -35,12 +35,16 @@ h2 {
 }
 
 h5 {
-    font-family: 'Knewave', cursive;
+    font-family: 'Roboto';
 }
 
 P {
     font-family: 'Roboto';
     font-size: 30px;
+}
+
+#instructions {
+    font-size: 18px;
 }
 
 .navbar {
