@@ -108,9 +108,18 @@ $(document).on("click", "#add-btn", function () {
   $("#newAddress").val('');
   $("#newName").val('');
 });
+
+
+
+
 $(document).on("click", ".activeList", function () {
-  console.log($(this)[0]);
+  var a = JSON.stringify($(this).val());
+  console.log($(this).val());
   console.log("^this was clicked");
+  sessionStorage.setItem("destination",a);
+  onChangeHandler();
+
+  
 });// on click for selecting which list to pull address information from. 
 
 //on click for submit button on signup page
@@ -129,7 +138,6 @@ if (navigator.geolocation) {
     
     console.log(pos.lat)
     console.log(pos.lng)
-    $("body").on('click', function(yeehaw){
       var lat = pos.lat;
       var lng = pos.lng;
       var key = "&key=AIzaSyA11oEIx4XjMpFyLNIs1-QKl7ENcRYVoe0"
@@ -146,7 +154,6 @@ if (navigator.geolocation) {
         sessionStorage.setItem("location", response.results[0].formatted_address);
         
       });
-    })
   })
 };
 
@@ -170,7 +177,7 @@ function initMap() {
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   directionsService.route({
     origin: sessionStorage.getItem("location") ,
-    destination: "6732 west 8305 south , West Jordan, UT 84081, USA",
+    destination: sessionStorage.getItem("destination"),
     travelMode: 'DRIVING'
   }, function(response, status) {
     if (status === 'OK') {
