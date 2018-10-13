@@ -13,8 +13,8 @@
   
 // start firebase listeners
 
-db.ref().on("value", function(snap) {
-  var user = snap.child("users").val();
+db.ref().child("users").on("value", function(snap) {
+  var user = snap.val();
   console.log(user);
 });
 
@@ -42,6 +42,7 @@ function login(user, password) {
           sessionStorage.l = user;
           sessionStorage.p = password;
           sessionStorage.listCount = snapshot.child("listCount").val();
+          window.location = ("GoogleMaps.html");
       } else { alert("please enter correct username and password"); } // we're not supposed to use these
   });
 };// end login function to check password if user exists
@@ -79,6 +80,12 @@ $(document).on("click", "#signUpBTN", function () {
 $(document).on("click", "#login", function () {
   console.log($(this)[0]);
   console.log("^this was clicked");
+  var u = $("#userName").val().trim();
+  var p = $("#password").val().trim();
+  login(u,p);
+  $("#userName").val('');
+  $("#password").val('');
+
 });
 
 //on click for sign-up button on login page
@@ -91,7 +98,20 @@ $(document).on("click", "#signup", function () {
 $(document).on("click", "#add-btn", function () {
   console.log($(this)[0]);
   console.log("^this was clicked");
+  var newA = $("#newAddress").val().trim();
+  var newN = $("#newName").val().trim();
+  var b = $('<li class="list-group-item active" style="margin-bottom: 5px;">');
+  var c = newN;
+  b.attr("value", newA).addClass("activeList");
+  b.append(c);
+  $("#listArea").append(b);
+  $("#newAddress").val('');
+  $("#newName").val('');
 });
+$(document).on("click", ".activeList", function () {
+  console.log($(this)[0]);
+  console.log("^this was clicked");
+});// on click for selecting which list to pull address information from. 
 
 //on click for submit button on signup page
 $(document).on("click", "#submit", function () {
