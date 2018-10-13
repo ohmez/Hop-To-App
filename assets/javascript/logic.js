@@ -78,7 +78,7 @@ method: "GET"
 
 // start on click function listeners - libby you're to make these for splash and login atleast; communicate with others to make sure if you want to do more. 
 //here is an example of what we need
-$(document).on("click", "#loginBTN, function () {
+$(document).on("click", "#loginBTN", function () {
   // script to be added after on clicks working
   console.log($(this)[0]);
   console.log("^this was clicked");
