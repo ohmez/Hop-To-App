@@ -62,19 +62,7 @@ function addItem (user, listNum, itemName, itemLocation) {
 };// end add item function, called when adding items, requires 4 parameters.
 
 // start global variables for ajax to google maps API's
-var lat = 40;
-var lng = -111;
-var key = "&key=AIzaSyA11oEIx4XjMpFyLNIs1-QKl7ENcRYVoe0"
-var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ lat + "," + lng + key ;
-console.log(queryURL)
 
- $.ajax({
-url: queryURL,
-method: "GET"
-}).then(function(response) {
-  console.log(response);
-  console.log(response.results[0].formatted_address);  
-});
 
 // start on click function listeners - libby you're to make these for splash and login atleast; communicate with others to make sure if you want to do more. 
 //here is an example of what we need
