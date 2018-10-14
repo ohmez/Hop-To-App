@@ -89,6 +89,7 @@ $(document).on("click", "#login", function () {
   login(u,p);
   $("#userName").val('');
   $("#password").val('');
+});
 //on click for sign-up button on login page
 $(document).on("click", "#submit", function () {
   console.log($(this)[0]);
@@ -192,5 +193,5 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     } else {
       window.alert('Directions request failed due to ' + status);
     }
-  });
-}
+  })
+};
