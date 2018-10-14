@@ -12,15 +12,12 @@
   var users = db.ref("/users");
   
 // start firebase listeners
-
 db.ref().child("users").on("value", function(snap) {
   var user = snap.val();
   console.log(user);
 });
 
-
 //start functions 
-
 function checkUser(user, password) {
   db.ref("/users").child(user).once('value', function (snapshot) {
       if (snapshot.exists()) {
@@ -33,7 +30,6 @@ function checkUser(user, password) {
           sessionStorage.listCount = 0;
           window.location = ("GoogleMaps.html");
       }
-
   });
 };// end checkUser function for signing up for new users.
 
@@ -65,8 +61,6 @@ function addItem (user, listNum, itemName, itemLocation) {
   });
 };// end add item function, called when adding items, requires 4 parameters.
 
-// start global variables for ajax to google maps API's
-
 //on click for log-in button on splash page
 $(document).on("click", "#loginBTN", function () {
   console.log($(this)[0]);
@@ -77,14 +71,10 @@ $(document).on("click", "#loginBTN", function () {
 $(document).on("click", "signUpBTN", function () {
   console.log($(this)[0]);
   console.log("^this was clicked");
- 
-
 });
 
 //on click for log-in button on login page
 $(document).on("click", "#login", function () {
-  console.log($(this)[0]);
-  console.log("^this was clicked");
   var u = $("#userName").val().trim();
   var p = $("#password").val().trim();
   login(u,p);
@@ -126,17 +116,7 @@ $(document).on("click", "#add-btn", function () {
   $("#newName").val('');
 });
 
-
-
-
-$(document).on("click", ".activeList", function () {
-  var a = $(this).attr("value");
-  sessionStorage.setItem("destination",a);
-  onChangeHandler();
-
-  
-});// on click for selecting which list to pull address information from. 
-
+// start global variables for ajax to google maps API's
 // gets location and uses a button to convert to address in console.
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function(position) {
@@ -144,24 +124,16 @@ if (navigator.geolocation) {
       lat: position.coords.latitude,
       lng: position.coords.longitude
     };
-    
-    console.log(pos.lat)
-    console.log(pos.lng)
       var lat = pos.lat;
       var lng = pos.lng;
       var key = "&key=AIzaSyA11oEIx4XjMpFyLNIs1-QKl7ENcRYVoe0"
       var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ lat + "," + lng + key ;
-      console.log(queryURL)
-      
       $.ajax({
         url: queryURL,
         method: "GET"
       })
       .then(function(response) {
-        console.log(response);
-        console.log(response.results[0].formatted_address);
         sessionStorage.setItem("location", response.results[0].formatted_address);
-        
       });
   })
 };
@@ -172,7 +144,8 @@ function initMap() {
   var directionsDisplay = new google.maps.DirectionsRenderer;
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 7,
-    center: {lat: 41.85, lng: -87.65}
+    center: {lat: 41.85, lng: -87.65},
+    disableDefaultUI: true
   });
   directionsDisplay.setMap(map);
   
@@ -180,8 +153,12 @@ function initMap() {
     calculateAndDisplayRoute(directionsService, directionsDisplay);
   };
   
-  document.getElementById('map').addEventListener('click', onChangeHandler);
-}
+  $(document).on("click", ".activeList", function () {
+    var a = $(this).attr("value");
+    sessionStorage.setItem("destination",a);
+    onChangeHandler();
+  });
+};
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   directionsService.route({
