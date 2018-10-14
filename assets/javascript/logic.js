@@ -71,9 +71,11 @@ $(document).on("click", "#loginBTN", function () {
 });
 
 //on click for sign-up button on splash page
-$(document).on("click", "#signUpBTN", function () {
+$(document).on("click", "signUpBTN", function () {
   console.log($(this)[0]);
   console.log("^this was clicked");
+ 
+
 });
 
 //on click for log-in button on login page
@@ -89,9 +91,25 @@ $(document).on("click", "#login", function () {
 });
 
 //on click for sign-up button on login page
-$(document).on("click", "#signup", function () {
+$(document).on("click", "#submit", function () {
   console.log($(this)[0]);
   console.log("^this was clicked");
+
+  var NewU =$('#userName').val().trim();
+  var NewEmail =$('#emailAddress').val().trim();
+  var NewP =$("#password").val().trim();
+  var NewReenter =$('#reenterPassword').val().trim();
+  console.log(NewU +" "+ NewEmail + " "+ NewP +" "+ NewReenter);
+
+  if (NewP === NewReenter) {
+    console.log("welcome");
+    checkUser(NewU, NewP);
+  }
+  else {
+    alert ("password does not Match");
+  }
+
+
 });
 
 //on click for add button on google maps page
