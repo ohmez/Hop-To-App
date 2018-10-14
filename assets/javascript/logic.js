@@ -35,6 +35,7 @@ function checkUser(user, password) {
 
   });
 };// end checkUser function for signing up for new users.
+
 function login(user, password) {
   db.ref("/users").child(user).once('value', function (snapshot) {
       if (snapshot.exists() && snapshot.val().pwrd == password) {
@@ -46,6 +47,7 @@ function login(user, password) {
       } else { alert("please enter correct username and password"); } // we're not supposed to use these
   });
 };// end login function to check password if user exists
+
 function addList (user, name, location) {
   db.ref("/users").child(user).once('value', function(snap) {
     var lCount = snap.child("listCount").val();
@@ -76,6 +78,33 @@ $(document).on("click", "#signUpBTN", function () {
   console.log("^this was clicked");
 });
 
+
+
+
+//on click for submit button on signup page
+$(document).on("click", "#submit", function () {
+  console.log($(this)[0]);
+  console.log("^this was clicked");
+  var newU = $("#userName").val().trim();
+  var newE = $("#emailAddress").val().trim();
+  var newP = $("#password").val().trim();
+  var newR = $("#reenterPassword").val().trim();
+  login(newU, newE, newP, newR);
+  console.log(newU, newE, newP, newR)
+  $("#userName").val('');
+  $("#emailAddress").val('');
+  $("#password").val('');
+  $("#reenterPassword").val('');
+
+  if (snapshot.exists() && )
+  // need to create an if else statement
+});
+
+
+
+
+
+
 //on click for log-in button on login page
 $(document).on("click", "#login", function () {
   console.log($(this)[0]);
@@ -85,13 +114,6 @@ $(document).on("click", "#login", function () {
   login(u,p);
   $("#userName").val('');
   $("#password").val('');
-
-});
-
-//on click for sign-up button on login page
-$(document).on("click", "#signup", function () {
-  console.log($(this)[0]);
-  console.log("^this was clicked");
 });
 
 //on click for add button on google maps page
@@ -112,12 +134,6 @@ $(document).on("click", ".activeList", function () {
   console.log($(this)[0]);
   console.log("^this was clicked");
 });// on click for selecting which list to pull address information from. 
-
-//on click for submit button on signup page
-$(document).on("click", "#submit", function () {
-  console.log($(this)[0]);
-  console.log("^this was clicked");
-});
 
 // gets location and uses a button to convert to address in console.
 if (navigator.geolocation) {
