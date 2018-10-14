@@ -35,6 +35,7 @@ function checkUser(user, password) {
 
   });
 };// end checkUser function for signing up for new users.
+
 function login(user, password) {
   db.ref("/users").child(user).once('value', function (snapshot) {
       if (snapshot.exists() && snapshot.val().pwrd == password) {
@@ -46,6 +47,7 @@ function login(user, password) {
       } else { alert("please enter correct username and password"); } // we're not supposed to use these
   });
 };// end login function to check password if user exists
+
 function addList (user, name, location) {
   db.ref("/users").child(user).once('value', function(snap) {
     var lCount = snap.child("listCount").val();
@@ -87,28 +89,23 @@ $(document).on("click", "#login", function () {
   login(u,p);
   $("#userName").val('');
   $("#password").val('');
-
-});
-
 //on click for sign-up button on login page
 $(document).on("click", "#submit", function () {
   console.log($(this)[0]);
   console.log("^this was clicked");
 
-  var NewU =$('#userName').val().trim();
-  var NewEmail =$('#emailAddress').val().trim();
-  var NewP =$("#password").val().trim();
-  var NewReenter =$('#reenterPassword').val().trim();
-  console.log(NewU +" "+ NewEmail + " "+ NewP +" "+ NewReenter);
+  var newU = $("#userName").val().trim();
+  var newE = $("#emailAddress").val().trim();
+  var newP = $("#password").val().trim();
+  var newR = $("#reenterPassword").val().trim();
 
-  if (NewP === NewReenter) {
+  if (newP === newR) {
     console.log("welcome");
-    checkUser(NewU, NewP);
+    checkUser(newU, newP);
   }
   else {
     alert ("password does not Match");
   }
-
 
 });
 
@@ -139,12 +136,6 @@ $(document).on("click", ".activeList", function () {
 
   
 });// on click for selecting which list to pull address information from. 
-
-//on click for submit button on signup page
-$(document).on("click", "#submit", function () {
-  console.log($(this)[0]);
-  console.log("^this was clicked");
-});
 
 // gets location and uses a button to convert to address in console.
 if (navigator.geolocation) {
