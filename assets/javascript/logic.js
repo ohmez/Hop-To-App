@@ -83,14 +83,10 @@ $(document).on("click", "#login", function () {
 });
 //on click for sign-up button on login page
 $(document).on("click", "#submit", function () {
-  console.log($(this)[0]);
-  console.log("^this was clicked");
-
   var newU = $("#userName").val().trim();
   var newE = $("#emailAddress").val().trim();
   var newP = $("#password").val().trim();
   var newR = $("#reenterPassword").val().trim();
-
   if (newP === newR) {
     console.log("welcome");
     checkUser(newU, newP);
@@ -98,9 +94,7 @@ $(document).on("click", "#submit", function () {
   else {
     alert ("password does not Match");
   }
-
 });
-
 //on click for add button on google maps page
 $(document).on("click", "#add-btn", function () {
   console.log($(this)[0]);
@@ -114,33 +108,51 @@ $(document).on("click", "#add-btn", function () {
   $("#listArea").append(b);
   $("#newAddress").val('');
   $("#newName").val('');
+  addItem(sessionStorage.l, sessionStorage.listCount, newN, newA);
 });
 
-// start global variables for ajax to google maps API's
-// gets location and uses a button to convert to address in console.
+// if logged in it will pull database and request location permission
 if (sessionStorage.l){
   console.log("session storage.l exists");
+  db.ref("users").child(sessionStorage.l).once("value",function (snap) {
+    var cList = snap.child("listCount").val();
+    $("#listArea").html("");
+    snap.child("lists").child("list"+cList).forEach(function(childsnap) {
+      var name = childsnap.key;
+      var addrs = childsnap.val();
+      var b = $('<li class="list-group-item active" style="margin-bottom: 5px;">');
+      var c = name;
+      b.attr("value", addrs).addClass("activeList");
+      b.append(c);
+      $("#listArea").append(b);
+      console.log(name + " " + addrs);
 
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(function(position) {
-    var pos = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
-    };
-      var lat = pos.lat;
-      var lng = pos.lng;
-      var key = "&key=AIzaSyA11oEIx4XjMpFyLNIs1-QKl7ENcRYVoe0"
-      var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ lat + "," + lng + key ;
-      $.ajax({
-        url: queryURL,
-        method: "GET"
-      })
-      .then(function(response) {
-        sessionStorage.setItem("location", response.results[0].formatted_address);
-      });
-  })
-};
-};
+    });
+
+    
+  });
+  
+// start global variables for ajax to google maps API's
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+        var lat = pos.lat;
+        var lng = pos.lng;
+        var key = "&key=AIzaSyA11oEIx4XjMpFyLNIs1-QKl7ENcRYVoe0"
+        var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ lat + "," + lng + key ;
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        })
+        .then(function(response) {
+          sessionStorage.setItem("location", response.results[0].formatted_address);
+        });
+    })
+  };// end geolocation if statment
+};// end sessionstorgage if statment
 
 //map for mapping page
 function initMap() {
@@ -150,18 +162,17 @@ function initMap() {
     zoom: 7,
     center: {lat: 41.85, lng: -87.65},
     disableDefaultUI: true
-  });
+    });
   directionsDisplay.setMap(map);
-  
   var onChangeHandler = function() {
     calculateAndDisplayRoute(directionsService, directionsDisplay);
-  };
+    };
   
   $(document).on("click", ".activeList", function () {
     var a = $(this).attr("value");
     sessionStorage.setItem("destination",a);
     onChangeHandler();
-  });
+    });
 };
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
