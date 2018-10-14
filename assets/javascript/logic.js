@@ -114,6 +114,7 @@ $(document).on("click", "#add-btn", function () {
   $("#listArea").append(b);
   $("#newAddress").val('');
   $("#newName").val('');
+  addItem(sessionStorage.l, sessionStorage.listCount, newN, newA);
 });
 
 // start global variables for ajax to google maps API's
