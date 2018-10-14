@@ -118,6 +118,9 @@ $(document).on("click", "#add-btn", function () {
 
 // start global variables for ajax to google maps API's
 // gets location and uses a button to convert to address in console.
+if (sessionStorage.l){
+  console.log("session storage.l exists");
+
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function(position) {
     var pos = {
@@ -136,6 +139,7 @@ if (navigator.geolocation) {
         sessionStorage.setItem("location", response.results[0].formatted_address);
       });
   })
+};
 };
 
 //map for mapping page
