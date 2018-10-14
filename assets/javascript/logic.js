@@ -31,6 +31,7 @@ function checkUser(user, password) {
           sessionStorage.l = user;
           sessionStorage.p = password;
           sessionStorage.listCount = 0;
+          window.location = ("GoogleMaps.html");
       }
 
   });
