@@ -73,37 +73,12 @@ $(document).on("click", "#loginBTN", function () {
 });
 
 //on click for sign-up button on splash page
-$(document).on("click", "#signUpBTN", function () {
+$(document).on("click", "signUpBTN", function () {
   console.log($(this)[0]);
   console.log("^this was clicked");
+ 
+
 });
-
-
-
-
-//on click for submit button on signup page
-$(document).on("click", "#submit", function () {
-  console.log($(this)[0]);
-  console.log("^this was clicked");
-  var newU = $("#userName").val().trim();
-  var newE = $("#emailAddress").val().trim();
-  var newP = $("#password").val().trim();
-  var newR = $("#reenterPassword").val().trim();
-  login(newU, newE, newP, newR);
-  console.log(newU, newE, newP, newR)
-  $("#userName").val('');
-  $("#emailAddress").val('');
-  $("#password").val('');
-  $("#reenterPassword").val('');
-
-  if (snapshot.exists() && )
-  // need to create an if else statement
-});
-
-
-
-
-
 
 //on click for log-in button on login page
 $(document).on("click", "#login", function () {
@@ -114,6 +89,24 @@ $(document).on("click", "#login", function () {
   login(u,p);
   $("#userName").val('');
   $("#password").val('');
+//on click for sign-up button on login page
+$(document).on("click", "#submit", function () {
+  console.log($(this)[0]);
+  console.log("^this was clicked");
+
+  var newU = $("#userName").val().trim();
+  var newE = $("#emailAddress").val().trim();
+  var newP = $("#password").val().trim();
+  var newR = $("#reenterPassword").val().trim();
+
+  if (newP === newR) {
+    console.log("welcome");
+    checkUser(newU, newP);
+  }
+  else {
+    alert ("password does not Match");
+  }
+
 });
 
 //on click for add button on google maps page
