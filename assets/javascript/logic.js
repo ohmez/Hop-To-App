@@ -113,9 +113,7 @@ $(document).on("click", "#add-btn", function () {
 
 
 $(document).on("click", ".activeList", function () {
-  var a = JSON.stringify($(this).val());
-  console.log($(this).val());
-  console.log("^this was clicked");
+  var a = $(this).attr("value");
   sessionStorage.setItem("destination",a);
   onChangeHandler();
 
