@@ -30,7 +30,6 @@ function checkUser(user, password) {
           sessionStorage.listCount = 0;
           window.location = ("GoogleMaps.html");
       }
-
   });
 };// end checkUser function for signing up for new users.
 
@@ -145,7 +144,8 @@ function initMap() {
   var directionsDisplay = new google.maps.DirectionsRenderer;
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 7,
-    center: {lat: 41.85, lng: -87.65}
+    center: {lat: 41.85, lng: -87.65},
+    disableDefaultUI: true
   });
   directionsDisplay.setMap(map);
   
