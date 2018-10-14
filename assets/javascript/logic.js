@@ -89,6 +89,7 @@ $(document).on("click", "#login", function () {
   login(u,p);
   $("#userName").val('');
   $("#password").val('');
+});
 //on click for sign-up button on login page
 $(document).on("click", "#submit", function () {
   console.log($(this)[0]);
@@ -128,9 +129,7 @@ $(document).on("click", "#add-btn", function () {
 
 
 $(document).on("click", ".activeList", function () {
-  var a = JSON.stringify($(this).val());
-  console.log($(this).val());
-  console.log("^this was clicked");
+  var a = $(this).attr("value");
   sessionStorage.setItem("destination",a);
   onChangeHandler();
 
@@ -194,5 +193,5 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     } else {
       window.alert('Directions request failed due to ' + status);
     }
-  });
-}
+  })
+};
