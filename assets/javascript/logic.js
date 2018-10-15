@@ -88,11 +88,16 @@ $(document).on("click", "#submit", function () {
   var newP = $("#password").val().trim();
   var newR = $("#reenterPassword").val().trim();
   if (newP === newR) {
-    console.log("welcome");
-    checkUser(newU, newP);
+    if (newP.length < 4){
+      alert ("Password must contain at least 4 characters")
+    }
+    else {
+      console.log("welcome");
+      checkUser(newU, newP);    
+    }
   }
   else {
-    alert ("password does not Match");
+    alert ("Password does not Match");
   }
 });
 //on click for add button on google maps page
