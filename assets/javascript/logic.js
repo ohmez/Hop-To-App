@@ -21,7 +21,9 @@ db.ref().child("users").on("value", function(snap) {
 function checkUser(user, password) {
   db.ref("/users").child(user).once('value', function (snapshot) {
       if (snapshot.exists()) {
-          alert("this user already exists, please make a new one or refresh and login"); // we're not supposed to use these
+        var helpText = $("<div />", {id:'helpText'}).html("this user already exists, please make a new one or refresh and login");
+        $(".card").append(helpText);
+          setTimeout(function() {helpText.html("");}, 5000);
       }
       else {
           db.ref("/users").child(user).set({ pwrd: password, lists: "none", pastLists: "none", listCount: 0 });
@@ -41,7 +43,11 @@ function login(user, password) {
           sessionStorage.p = password;
           sessionStorage.listCount = snapshot.child("listCount").val();
           window.location = ("GoogleMaps.html");
-      } else { alert("please enter correct username and password"); } // we're not supposed to use these
+      } else { 
+        var helpText = $("<div />", {id:'helpText'}).html("this user already exists, please make a new one or refresh and login");
+        $(".cardHelp").append(helpText);
+        setTimeout(function() {helpText.html("");}, 5000);
+       } // we're not supposed to use these
   });
 };// end login function to check password if user exists
 
@@ -89,7 +95,9 @@ $(document).on("click", "#submit", function () {
   var newR = $("#reenterPassword").val().trim();
   if (newP === newR) {
     if (newP.length < 4){
-      alert ("Password must contain at least 4 characters")
+      var helpText = $("<div />", {id:'helpText'}).html("Password must contain at least 4 characters");
+        $(".card").append(helpText);
+        setTimeout(function() {helpText.html("");}, 5000);
     }
     else {
       console.log("welcome");
@@ -97,7 +105,9 @@ $(document).on("click", "#submit", function () {
     }
   }
   else {
-    alert ("Password does not Match");
+    var helpText = $("<div />", {id:'helpText'}).html("Password does not Match");
+        $(".card").append(helpText);
+        setTimeout(function() {helpText.html("");}, 5000);
   }
 });
 //on click for add button on google maps page
@@ -189,7 +199,9 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     if (status === 'OK') {
       directionsDisplay.setDirections(response);
     } else {
-      window.alert('Directions request failed due to ' + status);
+      var helpText = $("<div />", {id:'helpText'}).html('Directions request failed due to ' + status);
+        $(".cardHelp").append(helpText);
+        setTimeout(function() {helpText.html("");}, 5000);
     }
   })
 };
