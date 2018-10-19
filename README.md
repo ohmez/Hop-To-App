@@ -22,14 +22,9 @@ With a click of a button GoogleMaps will s how you the way
 
 # GroupProject by
 '''
-Keagan  - [github](https://github.com/ohmez/)
+Keagan  - [github](https://github.com/ohmez/ "Keagans GitHub")
 Liliana
 Libby
 Jonathon
 Zach
 '''
-This is [an example](http://www.example.com/) inline link.
-
-[This link](http://example.com/ "Title") has a title attribute.
-
-Links are also auto-detected in text: http://example.com/
