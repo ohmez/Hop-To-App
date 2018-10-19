@@ -23,8 +23,16 @@ With a click of a button GoogleMaps will s how you the way
 # GroupProject by
 '''
 Keagan  - [github](https://github.com/ohmez/ "Keagans GitHub")
+
 Liliana
+
 Libby
+
 Jonathon
+
 Zach
+
 '''
+![Alt text](/path/to/image.jpg)
+![Alt text](/path/to/image.png "Optional title attribute")
+![Alt text](/url/to/image.jpg)
