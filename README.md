@@ -1,12 +1,7 @@
 ![Welcome to Hop-To](assets/images/HopToLogo.png "Welcome to Hop-To")
 ## This is our task orriented navigation app.
-'''
-
 Meaning you'll be able to save addresses and locations to your profile
 With a click of a button GoogleMaps will s how you the way
-
-'''
-
 
 ### Index
 1.[Check Me Out](https://ohmez.github.io/GroupProject/) - Link to deployed pages
