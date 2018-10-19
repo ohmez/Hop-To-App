@@ -1,4 +1,4 @@
-![hopto logo](assets/images/HopToLogo.png)![Alt Text](# Welcome to Hop To)
+![Welcome to Hop-To](assets/images/HopToLogo.png "Welcome to Hop-To")
 ## This is our task orriented navigation app.
 '''
 Meaning you'll be able to save addresses and locations to your profile
@@ -33,6 +33,3 @@ Jonathon
 Zach
 
 '''
-![Alt text](/path/to/image.jpg)
-![Alt text](/path/to/image.png "Optional title attribute")
-![Alt text](/url/to/image.jpg)
