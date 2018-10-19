@@ -18,8 +18,6 @@ With a click of a button GoogleMaps will s how you the way
 * [Firebase](https://firebase.google.com/) - Database Storage
 
 # GroupProject by
-'''
-
 Keagan  - [github](https://github.com/ohmez/ "Keagans GitHub")
 
 Liliana
@@ -30,12 +28,4 @@ Jonathon
 
 Zach
 
-'''
 
-...
-<--Collected image definitions-->
-[MockupA]: http://monosnap.com/image/bOcxxxxLGF.png "Screenshot of Feature A mockup" 
-...
-<!--Using an image reference-->
-![Mockup for feature A][MockupA]
-...
