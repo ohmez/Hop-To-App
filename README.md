@@ -1,8 +1,10 @@
 ![Welcome to Hop-To](assets/images/HopToLogo.png "Welcome to Hop-To")
 ## This is our task orriented navigation app.
 '''
+
 Meaning you'll be able to save addresses and locations to your profile
 With a click of a button GoogleMaps will s how you the way
+
 '''
 
 
@@ -34,3 +36,11 @@ Jonathon
 Zach
 
 '''
+
+...
+<--Collected image definitions-->
+[MockupA]: http://monosnap.com/image/bOcxxxxLGF.png "Screenshot of Feature A mockup" 
+...
+<!--Using an image reference-->
+![Mockup for feature A][MockupA]
+...
